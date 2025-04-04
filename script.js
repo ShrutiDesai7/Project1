@@ -25,24 +25,102 @@ const pets = [
     }
 ];
 
-function createPetCard(pet) {
+function createPetCard(pet, index) {
     return `
-        <div class="pet-card">
-            <img src="${pet.image}" alt="${pet.name}" onerror="this.src='https://place-hold.it/300x300/666/fff/000.jpeg&text=No+Image'">
-            <h3>${pet.name}</h3>
-            <p>${pet.breed}, ${pet.age}</p>
-            <p>${pet.description}</p>
-            <button class="donate-btn">Donate Now</button>
+        <div class="card bg-base-100 shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300" 
+             data-aos="fade-up" 
+             data-aos-delay="${index * 100}">
+            <figure class="px-4 pt-4 overflow-hidden">
+                <img src="${pet.image}" alt="${pet.name}" 
+                    class="rounded-xl h-48 w-full object-cover transform hover:scale-110 transition-transform duration-500"
+                    onerror="this.src='https://place-hold.it/300x300/666/fff/000.jpeg&text=No+Image'">
+            </figure>
+            <div class="card-body">
+                <h3 class="card-title">${pet.name}</h3>
+                <p class="text-gray-600">${pet.breed}, ${pet.age}</p>
+                <p class="text-sm">${pet.description}</p>
+                <div class="card-actions justify-end mt-4">
+                    <button class="btn btn-primary animate__animated hover:animate__pulse">Adopt Now</button>
+                </div>
+            </div>
         </div>
     `;
 }
 
 function displayPets() {
     const petsGrid = document.getElementById('petsGrid');
-    const loading = document.getElementById('loading');
-    
-    loading.style.display = 'none';
-    petsGrid.innerHTML = pets.map(pet => createPetCard(pet)).join('');
+    if (petsGrid) {
+        petsGrid.innerHTML = pets.map((pet, index) => createPetCard(pet, index)).join('');
+        console.log('Pets displayed:', pets.length);
+    } else {
+        console.error('Pets grid element not found');
+    }
 }
 
-document.addEventListener('DOMContentLoaded', displayPets);
+// Move event listeners to top level
+document.addEventListener('DOMContentLoaded', () => {
+    // Initialize AOS
+    AOS.init({
+        duration: 800,
+        once: true
+    });
+    
+    // Display pets immediately when DOM loads
+    displayPets();
+    
+    // Setup form validation
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            let isValid = true;
+
+            // Validate name
+            const name = document.getElementById('name');
+            const nameError = document.getElementById('nameError');
+            if (!name.value.trim()) {
+                nameError.classList.remove('hidden');
+                isValid = false;
+            } else {
+                nameError.classList.add('hidden');
+            }
+
+            // Validate email
+            const email = document.getElementById('email');
+            const emailError = document.getElementById('emailError');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!email.value.trim() || !emailRegex.test(email.value)) {
+                emailError.classList.remove('hidden');
+                isValid = false;
+            } else {
+                emailError.classList.add('hidden');
+            }
+
+            // Validate message
+            const message = document.getElementById('message');
+            const messageError = document.getElementById('messageError');
+            if (!message.value.trim()) {
+                messageError.classList.remove('hidden');
+                isValid = false;
+            } else {
+                messageError.classList.add('hidden');
+            }
+
+            if (isValid) {
+                // Handle form submission
+                console.log('Form submitted successfully');
+                this.reset();
+            }
+        });
+    }
+    
+    // Setup button animations
+    document.addEventListener('click', (e) => {
+        if (e.target.matches('.btn-primary')) {
+            e.target.classList.add('animate__animated', 'animate__bounce');
+            setTimeout(() => {
+                e.target.classList.remove('animate__animated', 'animate__bounce');
+            }, 1000);
+        }
+    });
+});
