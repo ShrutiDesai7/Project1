@@ -3,11 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Pet Donation Website</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <header class="navbar">
+        <nav>
+            <a href="#" class="logo">
+                <h2 class="logo-text">MyLogo</h2>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#section1">Home</a></li>
+                <li><a href="#section2">About</a></li>
+                <li><a href="#section3">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="section1" class="section1">
+            <div>
+                <!-- Section 1 content -->
+            </div>
+        </section>
+        <section id="section2">
+            <!-- Section 2 content -->
+        </section>
+        <section id="section3">
+            <!-- Section 3 content -->
+        </section>
+        <section id="pets-section">
+            <div class="pets-container">
+                <h2>Pets Available for Donation</h2>
+                <div id="loading" class="loading">Loading pets...</div>
+                <div id="error" class="error" style="display: none;"></div>
+                <div class="pets-grid" id="petsGrid">
+                    <!-- Pets will be dynamically inserted here -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <!-- Footer logos or contact info -->
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
