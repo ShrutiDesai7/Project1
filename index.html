@@ -1,90 +1,22 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pet Donation Website</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.9.3/dist/full.css" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header class="navbar">
         <nav>
-            <a href="#" class="logo">
-                <h2 class="logo-text">MyLogo</h2>
-            </a>
-            <ul class="nav-links">
-                <li><a href="#section1">Home</a></li>
-                <li><a href="#section2">About</a></li>
-                <li><a href="#section3">Services</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+            <a href="#">EcoTrack</a>
+            <li><a href="">Home</a></li>
+            <li><a href="">features</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="">Contact</a></li>
+            <li><a href="">Sign In</a></li>
         </nav>
     </header>
-
-    <main class="pt-20"> <!-- Add padding-top to account for fixed navbar -->
-        <section id="section1" class="section1">
-            <div>
-                <!-- Section 1 content -->
-            </div>
-        </section>
-        <section id="section2">
-            <!-- Section 2 content -->
-        </section>
-        <section id="section3">
-            <!-- Section 3 content -->
-        </section>
-        <section id="pets-section" class="bg-gradient-to-b from-blue-50 to-white py-12">
-            <div class="container mx-auto px-4">
-                <h2 class="text-4xl font-bold text-center mb-12" data-aos="fade-down">Pets Available for Adoption</h2>
-                <div id="petsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Pets will be dynamically inserted here -->
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="py-12 bg-white">
-            <div class="container mx-auto px-4">
-                <h2 class="text-4xl font-bold text-center mb-8">Contact Us</h2>
-                <form id="contactForm" class="max-w-md mx-auto">
-                    <div class="form-control mb-4">
-                        <label class="label">
-                            <span class="label-text">Name</span>
-                        </label>
-                        <input type="text" id="name" class="input input-bordered w-full" />
-                        <span class="text-error text-sm hidden" id="nameError">Name is required</span>
-                    </div>
-                    <div class="form-control mb-4">
-                        <label class="label">
-                            <span class="label-text">Email</span>
-                        </label>
-                        <input type="email" id="email" class="input input-bordered w-full" />
-                        <span class="text-error text-sm hidden" id="emailError">Valid email is required</span>
-                    </div>
-                    <div class="form-control mb-4">
-                        <label class="label">
-                            <span class="label-text">Message</span>
-                        </label>
-                        <textarea id="message" class="textarea textarea-bordered h-24"></textarea>
-                        <span class="text-error text-sm hidden" id="messageError">Message is required</span>
-                    </div>
-                    <button type="submit" class="btn btn-primary w-full">Send Message</button>
-                </form>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <!-- Footer logos or contact info -->
-    </footer>
-
     <script src="script.js"></script>
 </body>
 </html>
